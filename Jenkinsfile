@@ -16,6 +16,7 @@ pipeline {
 
         stage('Install Dependencies and Build the project') {
             steps {
+                // Run npm install to install dependencies
 				bat 'mvn clean install'
             }
         }
@@ -27,7 +28,7 @@ pipeline {
                 allure includeProperties:
                     false,
                     jdk: '',
-                    results: [[path: './target/allure-results']]
+                    results: [[path: './allure-results']]
             }
         }
 }
